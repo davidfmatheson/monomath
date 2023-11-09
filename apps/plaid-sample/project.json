@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "plaid-sample:build:production"
+          "buildTarget": "plaid-sample:build:production"
         },
         "development": {
-          "browserTarget": "plaid-sample:build:development"
+          "buildTarget": "plaid-sample:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "plaid-sample:build"
+        "buildTarget": "plaid-sample:build"
       }
     },
     "lint": {
@@ -81,14 +81,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/plaid-sample/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/plaid-sample/jest.config.ts"
       }
     },
     "serve-static": {
