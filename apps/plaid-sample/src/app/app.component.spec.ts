@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     );
   });
 
-  it(`should have as title 'plaid-sample'`, () => {
+  it('should have as title plaid-sample', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('plaid-sample');
