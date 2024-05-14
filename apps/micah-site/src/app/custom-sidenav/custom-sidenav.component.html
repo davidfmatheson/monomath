@@ -1,0 +1,29 @@
+<div class="sidenav-header">
+  <img
+    src="/assets/profile-pic.jpg"
+    alt="profile pic"
+    [width]="profilePicSize()"
+    [height]="profilePicSize()"
+  />
+  <div class="header-text" [class.hide-header-text]="sidenavCollapsed()">
+    <h2>Your channel</h2>
+    <p>Micah Matheson</p>
+  </div>
+</div>
+<mat-nav-list>
+  @for (menuItem of menuItems(); track menuItem.label) {
+    <a
+      mat-list-item
+      class="menu-item"
+      [routerLink]="menuItem.route"
+      routerLinkActive="selected-menu-item"
+      #rla="routerLinkActive"
+      [activated]="rla.isActive"
+    >
+      <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{ menuItem.icon }}</mat-icon>
+      @if (!sidenavCollapsed()) {
+        <span matListItemTitle>{{ menuItem.label }}</span>
+      }
+    </a>
+  }
+</mat-nav-list>
