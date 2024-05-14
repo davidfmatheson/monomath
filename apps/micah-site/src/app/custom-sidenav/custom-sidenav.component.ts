@@ -2,6 +2,7 @@ import { Component, Input, computed, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 export type MenuItem = {
   icon: string;
@@ -12,7 +13,13 @@ export type MenuItem = {
 @Component({
   selector: 'app-custom-sidenav',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, MatListModule, MatIconModule],
+  imports: [
+    CommonModule,
+    NgOptimizedImage,
+    MatListModule,
+    MatIconModule,
+    RouterModule,
+  ],
   templateUrl: './custom-sidenav.component.html',
   styleUrl: './custom-sidenav.component.scss',
 })
@@ -26,7 +33,7 @@ export class CustomSidenavComponent {
     {
       icon: 'home',
       label: 'Home',
-      route: '',
+      route: 'home',
     },
     {
       icon: 'video_library',
@@ -40,5 +47,5 @@ export class CustomSidenavComponent {
     },
   ]);
 
-  profilePicSize = computed(() => this.sidenavCollapsed() ? '32' : '100');
+  profilePicSize = computed(() => (this.sidenavCollapsed() ? '32' : '100'));
 }
