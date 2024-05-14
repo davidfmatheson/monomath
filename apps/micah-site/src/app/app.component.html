@@ -1,14 +1,14 @@
 <mat-toolbar color="primary" class="mat-elevation-z3">
-  <button mat-icon-button (click)="sidenav.toggle()">
+  <button mat-icon-button (click)="collapsed.set(!collapsed())">
     <mat-icon>menu</mat-icon>
   </button>
   A Brief History of Micah
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" opened [style.width]="'250px'">
-    <app-custom-sidenav />
+  <mat-sidenav #sidenav mode="side" opened [style.width]="sidenavWidth()">
+    <app-custom-sidenav [collapsed]="collapsed()" />
   </mat-sidenav>
-  <mat-sidenav-content class="content">
+  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

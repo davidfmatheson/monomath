@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, computed, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,21 +17,28 @@ export type MenuItem = {
   styleUrl: './custom-sidenav.component.scss',
 })
 export class CustomSidenavComponent {
+  sidenavCollapsed = signal(false);
+  @Input() set collapsed(val: boolean) {
+    this.sidenavCollapsed.set(val);
+  }
+
   menuItems = signal<MenuItem[]>([
     {
-      icon: 'dashboard',
-      label: 'Dashboard',
-      route: 'dashboard',
+      icon: 'home',
+      label: 'Home',
+      route: '',
     },
     {
       icon: 'video_library',
-      label: 'Content',
-      route: 'content',
+      label: 'Videos',
+      route: 'videos',
     },
     {
-      icon: 'analytics',
-      label: 'Analytics',
-      route: 'analytics',
+      icon: 'view_carousel',
+      label: 'Pictures',
+      route: 'pictures',
     },
   ]);
+
+  profilePicSize = computed(() => this.sidenavCollapsed() ? '32' : '100');
 }
