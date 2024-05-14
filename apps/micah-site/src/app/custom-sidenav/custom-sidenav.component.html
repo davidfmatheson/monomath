@@ -1,0 +1,15 @@
+<div class="sidenav-header">
+  <img ngSrc="/assets/profile-pic.jpg" alt="profile pic" width="100" height="100" />
+  <div class="header-text">
+    <h2>Your channel</h2>
+    <p>Micah Matheson</p>
+  </div>
+</div>
+<mat-nav-list>
+  @for (menuItem of menuItems(); track menuItem.label) {
+    <a mat-list-item>
+      <mat-icon matListItemIcon>{{ menuItem.icon }}</mat-icon>
+      <span matListItemTitle>{{ menuItem.label }}</span>
+    </a>
+  }
+</mat-nav-list>

@@ -2,18 +2,11 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
+  A Brief History of Micah
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened [style.width]="'250px'">
-    <p>
-      <a routerLink="/">Home</a>
-    </p>
-    <p>
-      <a routerLink="/about">About</a>
-    </p>
-    <p>
-      <a routerLink="/contact">Contact</a>
-    </p>
+    <app-custom-sidenav />
   </mat-sidenav>
   <mat-sidenav-content class="content">
     <router-outlet></router-outlet>
