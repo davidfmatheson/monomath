@@ -36,6 +36,7 @@
     "@angular/compiler-cli": "18.0.0",
     "@angular/language-service": "18.0.0",
     "@coreui/angular": "^5.1.0",
+    "@coreui/coreui": "^5.0.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nx/cypress": "19.1.0",
