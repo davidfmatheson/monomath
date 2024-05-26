@@ -1,8 +1,22 @@
-<iframe width="560" height="315"
-  src="https://www.youtube.com/embed/FwAiXk_aBI8?si=H6mfJajTeI5xbBh7"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>
+<div class="video-carousel">
+  <c-carousel>
+    <c-carousel-indicators></c-carousel-indicators>
+    <c-carousel-inner>
+      @for (video of videos(); track video.src) {
+      <c-carousel-item>
+        <iframe width="560" height="315"
+          [src]="video.url"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          class="d-block w-100"
+          allowfullscreen>
+        </iframe>
+      </c-carousel-item>
+      }
+    </c-carousel-inner>
+    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+  </c-carousel>
+</div>

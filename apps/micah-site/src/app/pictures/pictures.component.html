@@ -1,1 +1,18 @@
-<p>pictures works!</p>
+<div class="picture-carousel">
+  <c-carousel [interval]="0">
+    <c-carousel-inner>
+      @for (picture of pictures(); track picture.src) {
+      <c-carousel-item>
+        <img
+        [src]="picture.src"
+        alt="{{ picture.title }}"
+        class="d-block w-100"
+        loading="lazy"
+      />
+      </c-carousel-item>
+      }
+    </c-carousel-inner>
+    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+  </c-carousel>
+</div>
