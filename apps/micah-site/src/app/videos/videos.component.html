@@ -1,10 +1,10 @@
 <div class="video-carousel">
-  <c-carousel>
+  <c-carousel [interval]="0">
     <c-carousel-inner>
       @for (video of videos(); track video.id) {
         <c-carousel-item>
           <div class="d-block w-100" loading="lazy">
-            <youtube-player [videoId]="video.id" width="800" />
+            <youtube-player [videoId]="video.id" width="700" />
           </div>
         </c-carousel-item>
       }
