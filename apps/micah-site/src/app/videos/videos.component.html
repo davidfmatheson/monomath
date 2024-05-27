@@ -1,19 +1,12 @@
 <div class="video-carousel">
   <c-carousel>
-    <c-carousel-indicators></c-carousel-indicators>
     <c-carousel-inner>
-      @for (video of videos(); track video.src) {
-      <c-carousel-item>
-        <iframe width="560" height="315"
-          [src]="video.url"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          class="d-block w-100"
-          allowfullscreen>
-        </iframe>
-      </c-carousel-item>
+      @for (video of videos(); track video.id) {
+        <c-carousel-item>
+          <div class="d-block w-100" loading="lazy">
+            <youtube-player [videoId]="video.id" width="800" />
+          </div>
+        </c-carousel-item>
       }
     </c-carousel-inner>
     <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
