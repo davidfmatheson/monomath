@@ -31,4 +31,4 @@ jobs:
             node_modules
             ~/.cache/Cypress # needed for the Cypress binary
           key: npm-dependencies-${{ hashFiles('package-lock.json') }}
-      - run: npx nx build micah-site
+      - run: npx nx affected -t build --parallel=3
