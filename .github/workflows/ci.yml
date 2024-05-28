@@ -31,4 +31,6 @@ jobs:
             node_modules
             ~/.cache/Cypress # needed for the Cypress binary
           key: npm-dependencies-${{ hashFiles('package-lock.json') }}
+      - run: git branch --track main origin/main
+        if: ${{ github.event_name == 'pull_request' }}
       - run: npx nx affected -t build --parallel=3
