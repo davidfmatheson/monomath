@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { VideosComponent } from './videos.component';
-import { RouterModule } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('VideosComponent', () => {
@@ -10,7 +10,8 @@ describe('VideosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VideosComponent, NoopAnimationsModule, RouterModule.forRoot([])],
+      imports: [VideosComponent, NoopAnimationsModule],
+      providers: [provideRouter([])]
     }).compileComponents();
 
     intersectionObserverMock = () => ({
