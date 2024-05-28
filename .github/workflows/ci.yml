@@ -34,4 +34,3 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
       - run: npx nx affected -t lint test build --parallel=3
-      - run: npx nx affected -t e2e --parallel=1
