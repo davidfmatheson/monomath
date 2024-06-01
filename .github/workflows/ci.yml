@@ -34,3 +34,10 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
       - run: npx nx affected -t lint test build --parallel=3
+      - name: Configure AWS Credentials
+        if: ${{ github.ref_name == 'main' }}
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
