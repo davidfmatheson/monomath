@@ -37,7 +37,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
       - run: npx nx affected -t lint test build --parallel=3
       - name: Bump version and push tag
-        if: ${{ github.event.pull_request.merged == true }}
+        if: github.event.pull_request.merged == true
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
