@@ -38,11 +38,19 @@ export class PicturesComponent {
       title: "Baby Micah"
     },
     {
-      src: "./assets/micah-frog.jpg",
+      src: "./assets/micah-violin-2019-04-27.jpg",
+      title: "Micah violin quartet"
+    },
+    {
+      src: "./assets/micah-violin-2020-12-01.jpg",
+      title: "Micah violin solo"
+    },
+    {
+      src: "./assets/micah-frog-2021-06-01.jpg",
       title: "Micah catching frogs"
     },
     {
-      src: "./assets/micah-alicia.jpg",
+      src: "./assets/micah-alicia-2024-05-01.jpg",
       title: "Micah and Alicia"
     }
   ]);
