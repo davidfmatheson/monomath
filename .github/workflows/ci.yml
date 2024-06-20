@@ -36,11 +36,8 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
       - run: npx nx affected -t lint test build --parallel=3
-      - run: echo "event name is:" ${{ github.event_name }}
-      - run: echo "event type is:" ${{ github.event.action }}
-      - run: echo "pull_request.merged:" ${{ github.event.pull_request.merged }}
       - name: Bump version and push tag
-        if: github.event.pull_request.merged == true
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
