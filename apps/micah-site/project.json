@@ -8,16 +8,12 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/micah-site",
         "index": "apps/micah-site/src/index.html",
         "browser": "apps/micah-site/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/micah-site/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -64,7 +60,8 @@
           "buildTarget": "micah-site:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -77,11 +74,10 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/micah-site/jest.config.ts"
+        "jestConfig": "apps/micah-site/jest.config.ts",
+        "tsConfig": "apps/micah-site/tsconfig.spec.json"
       }
     },
     "serve-static": {

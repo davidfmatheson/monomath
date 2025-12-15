@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import {
   CarouselComponent,
@@ -19,15 +19,14 @@ export type Picture = {
   selector: 'app-pictures',
   standalone: true,
   imports: [
-    CommonModule,
     ThemeDirective,
     CarouselComponent,
     CarouselIndicatorsComponent,
     CarouselInnerComponent,
     CarouselItemComponent,
     CarouselControlComponent,
-    RouterModule,
-  ],
+    RouterModule
+],
   templateUrl: './pictures.component.html',
   styleUrl: './pictures.component.scss',
 })
