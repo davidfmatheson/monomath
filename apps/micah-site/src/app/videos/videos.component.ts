@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 import { YouTubePlayer } from '@angular/youtube-player';
 import {
@@ -19,7 +19,6 @@ export type Video = {
   selector: 'app-videos',
   standalone: true,
   imports: [
-    CommonModule,
     ThemeDirective,
     CarouselComponent,
     CarouselIndicatorsComponent,
@@ -27,8 +26,8 @@ export type Video = {
     CarouselItemComponent,
     CarouselControlComponent,
     YouTubePlayer,
-    RouterModule,
-  ],
+    RouterModule
+],
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.scss',
 })
