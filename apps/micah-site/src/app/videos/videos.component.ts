@@ -5,7 +5,6 @@ import { YouTubePlayer } from '@angular/youtube-player';
 import {
   CarouselComponent,
   CarouselControlComponent,
-  CarouselIndicatorsComponent,
   CarouselInnerComponent,
   CarouselItemComponent,
   ThemeDirective,
@@ -21,7 +20,6 @@ export type Video = {
   imports: [
     ThemeDirective,
     CarouselComponent,
-    CarouselIndicatorsComponent,
     CarouselInnerComponent,
     CarouselItemComponent,
     CarouselControlComponent,

@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import {
   CarouselComponent,
   CarouselControlComponent,
-  CarouselIndicatorsComponent,
   CarouselInnerComponent,
   CarouselItemComponent,
   ThemeDirective,
@@ -21,7 +20,6 @@ export type Picture = {
   imports: [
     ThemeDirective,
     CarouselComponent,
-    CarouselIndicatorsComponent,
     CarouselInnerComponent,
     CarouselItemComponent,
     CarouselControlComponent,

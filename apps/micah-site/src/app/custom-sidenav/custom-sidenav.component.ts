@@ -1,5 +1,4 @@
 import { Component, Input, computed, signal } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -14,7 +13,6 @@ export type MenuItem = {
   selector: 'app-custom-sidenav',
   standalone: true,
   imports: [
-    NgOptimizedImage,
     MatListModule,
     MatIconModule,
     RouterModule
