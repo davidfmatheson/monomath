@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'plain-sample-api',
+  displayName: 'plaid-sample-api',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

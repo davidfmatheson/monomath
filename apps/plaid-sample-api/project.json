@@ -1,5 +1,5 @@
 {
-  "name": "plain-sample-api",
+  "name": "plaid-sample-api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/plaid-sample-api/src",
   "projectType": "application",
@@ -28,14 +28,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "plain-sample-api:build"
+        "buildTarget": "plaid-sample-api:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "plain-sample-api:build:development"
+          "buildTarget": "plaid-sample-api:build:development"
         },
         "production": {
-          "buildTarget": "plain-sample-api:build:production"
+          "buildTarget": "plaid-sample-api:build:production"
         }
       }
     },

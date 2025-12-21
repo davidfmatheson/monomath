@@ -1,7 +1,7 @@
 {
-  "name": "plain-sample-api-e2e",
+  "name": "plaid-sample-api-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "implicitDependencies": ["plain-sample-api"],
+  "implicitDependencies": ["plaid-sample-api"],
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",
