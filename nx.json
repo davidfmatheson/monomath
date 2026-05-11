@@ -27,8 +27,10 @@
       "cache": true,
       "inputs": [
         "default",
+        "^default",
         "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore"
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/tools/eslint-rules/**/*"
       ]
     },
     "@angular-devkit/build-angular:application": {
@@ -117,5 +119,6 @@
       "typeSeparator": "."
     }
   },
-  "neverConnectToCloud": true
+  "neverConnectToCloud": true,
+  "analytics": true
 }
