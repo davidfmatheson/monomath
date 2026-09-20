@@ -1,4 +1,4 @@
-import { Component, Input, computed, signal } from '@angular/core';
+import { Component, Input, computed, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
@@ -18,6 +18,7 @@ export type MenuItem = {
     RouterModule
 ],
   templateUrl: './custom-sidenav.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './custom-sidenav.component.scss',
 })
 export class CustomSidenavComponent {

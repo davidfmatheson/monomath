@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { YouTubePlayer } from '@angular/youtube-player';
@@ -27,6 +27,7 @@ export type Video = {
     RouterModule
 ],
   templateUrl: './videos.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './videos.component.scss',
 })
 export class VideosComponent {
