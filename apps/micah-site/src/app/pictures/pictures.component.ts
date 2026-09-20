@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import {
@@ -26,6 +26,7 @@ export type Picture = {
     RouterModule
 ],
   templateUrl: './pictures.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './pictures.component.scss',
 })
 export class PicturesComponent {
