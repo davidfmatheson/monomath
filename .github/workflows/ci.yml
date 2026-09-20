@@ -37,7 +37,6 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
       - name: Determine affected base
-        id: affected_base
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || true)
@@ -51,8 +50,9 @@ jobs:
           else
             BASE="main"
           fi
-          echo "base=$BASE" >> "$GITHUB_OUTPUT"
-      - run: npx nx affected -t lint test build --parallel=3 --base=${{ steps.affected_base.outputs.base }}
+          echo "NX_BASE=$BASE" >> "$GITHUB_ENV"
+          echo "NX_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - run: npx nx affected -t lint test build --parallel=3
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         id: tag_version
