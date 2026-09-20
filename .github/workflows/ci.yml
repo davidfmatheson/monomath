@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: true
       - uses: actions/setup-node@v3
         with:
           node-version: 24
@@ -35,7 +36,23 @@ jobs:
           key: npm-dependencies-${{ hashFiles('package-lock.json') }}
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
-      - run: npx nx affected -t lint test build --parallel=3
+      - name: Determine affected base
+        id: affected_base
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || true)
+            if [ -z "$LAST_TAG" ]; then
+              echo "No previous tag found; using the repo's first commit as the affected base"
+              BASE=$(git rev-list --max-parents=0 HEAD)
+            else
+              echo "Using last successful tag as affected base: $LAST_TAG"
+              BASE="$LAST_TAG"
+            fi
+          else
+            BASE="main"
+          fi
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
+      - run: npx nx affected -t lint test build --parallel=3 --base=${{ steps.affected_base.outputs.base }}
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         id: tag_version
@@ -43,10 +60,12 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure AWS Credentials
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy static site to S3 bucket
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: aws s3 sync ./dist/apps/micah-site/browser s3://micahmatheson.com --delete
