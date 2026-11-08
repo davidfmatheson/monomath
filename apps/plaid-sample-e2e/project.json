@@ -5,22 +5,6 @@
   "projectType": "application",
   "tags": [],
   "implicitDependencies": ["plaid-sample"],
-  "targets": {
-    "e2e": {
-      "executor": "@nx/cypress:cypress",
-      "options": {
-        "cypressConfig": "apps/plaid-sample-e2e/cypress.config.ts",
-        "devServerTarget": "plaid-sample:serve:development",
-        "testingType": "e2e"
-      },
-      "configurations": {
-        "production": {
-          "devServerTarget": "plaid-sample:serve:production"
-        },
-        "ci": {
-          "devServerTarget": "plaid-sample:serve-static"
-        }
-      }
-    }
-  }
+  "// targets": "to see all targets run: nx show project plaid-sample-e2e --web",
+  "targets": {}
 }

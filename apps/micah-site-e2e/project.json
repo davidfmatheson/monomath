@@ -5,22 +5,6 @@
   "sourceRoot": "apps/micah-site-e2e/src",
   "tags": [],
   "implicitDependencies": ["micah-site"],
-  "targets": {
-    "e2e": {
-      "executor": "@nx/cypress:cypress",
-      "options": {
-        "cypressConfig": "apps/micah-site-e2e/cypress.config.ts",
-        "testingType": "e2e",
-        "devServerTarget": "micah-site:serve:development"
-      },
-      "configurations": {
-        "production": {
-          "devServerTarget": "micah-site:serve:production"
-        },
-        "ci": {
-          "devServerTarget": "micah-site:serve-static"
-        }
-      }
-    }
-  }
+  "// targets": "to see all targets run: nx show project micah-site-e2e --web",
+  "targets": {}
 }
