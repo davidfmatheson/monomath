@@ -61,20 +61,23 @@
         "development": {
           "buildTarget": "micah-site:build:development"
         }
+      },
+      "readyWhen": {
+        "signal": true
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "micah-site:build",
         "port": 4200,
         "staticFilePath": "dist/apps/micah-site/browser",
         "spa": true
-      },
-      "readyWhen": {
-        "signal": true
-      },
-      "dependsOn": ["build"]
+      }
     }
   }
 }

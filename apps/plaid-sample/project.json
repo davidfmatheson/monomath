@@ -57,17 +57,20 @@
         "development": {
           "buildTarget": "plaid-sample:build:development"
         }
+      },
+      "readyWhen": {
+        "signal": true
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "plaid-sample:build"
-      },
       "readyWhen": {
         "signal": true
       },
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "plaid-sample:build"
+      }
     }
   }
 }
