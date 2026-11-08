@@ -145,5 +145,8 @@
       },
       "include": ["apps/plaid-sample-api-e2e/**/*"]
     }
-  ]
+  ],
+  "affected": {
+    "legacy": true
+  }
 }
