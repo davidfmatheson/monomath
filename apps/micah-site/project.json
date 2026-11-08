@@ -61,13 +61,17 @@
         "development": {
           "buildTarget": "micah-site:build:development"
         }
+      },
+      "readyWhen": {
+        "signal": true
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "micah-site:build",
         "port": 4200,

@@ -6,23 +6,8 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "target": "node",
-        "compiler": "tsc",
-        "outputPath": "dist/apps/plaid-sample-api",
-        "main": "apps/plaid-sample-api/src/main.ts",
-        "tsConfig": "apps/plaid-sample-api/tsconfig.app.json",
-        "assets": ["apps/plaid-sample-api/src/assets"],
-        "isolatedConfig": true,
-        "webpackConfig": "apps/plaid-sample-api/webpack.config.js"
-      },
-      "configurations": {
-        "development": {},
-        "production": {}
-      }
+      "outputs": ["{workspaceRoot}/dist/apps/plaid-sample-api"],
+      "defaultConfiguration": "production"
     },
     "serve": {
       "executor": "@nx/js:node",
@@ -38,10 +23,6 @@
           "buildTarget": "plaid-sample-api:build:production"
         }
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
   }
 }
