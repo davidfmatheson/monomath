@@ -21,10 +21,6 @@
           "devServerTarget": "plaid-sample:serve-static"
         }
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
   }
 }

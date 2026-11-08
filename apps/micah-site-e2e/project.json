@@ -21,9 +21,6 @@
           "devServerTarget": "micah-site:serve-static"
         }
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
     }
   }
 }
