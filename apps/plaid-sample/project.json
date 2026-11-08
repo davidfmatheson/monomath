@@ -63,7 +63,11 @@
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "plaid-sample:build"
-      }
+      },
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"]
     }
   }
 }

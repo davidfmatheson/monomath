@@ -70,7 +70,11 @@
         "port": 4200,
         "staticFilePath": "dist/apps/micah-site/browser",
         "spa": true
-      }
+      },
+      "readyWhen": {
+        "signal": true
+      },
+      "dependsOn": ["build"]
     }
   }
 }
