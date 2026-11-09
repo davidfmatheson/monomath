@@ -1,0 +1,7 @@
+# Git hooks managed by lefthook: https://lefthook.dev/configuration/
+# Hooks are (re)installed by lefthook's npm postinstall, or `npx lefthook install`.
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: npx --no -- commitlint --edit {1}

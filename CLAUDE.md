@@ -42,6 +42,10 @@ nx affected -t lint test build --parallel=3
 
 CI (`.github/workflows/ci.yml`) runs exactly `nx affected -t lint test build --parallel=3` against `origin/main`, then on pushes to `main` tags a version and deploys `dist/apps/micah-site/browser` to S3. There is no build-artifact deploy step for `plaid-sample`/`plaid-sample-api`.
 
+## Commits
+
+Commit messages must follow Conventional Commits (`@commitlint/config-conventional`, configured in `commitlint.config.mjs`). A lefthook `commit-msg` hook (`lefthook.yml`) runs commitlint and rejects non-conforming messages. `npm run commit` opens the commitizen prompt, which reads the same rules. Hooks are installed by lefthook's npm postinstall (or `npx lefthook install`).
+
 ## Architecture notes
 
 - Module boundaries are enforced via `@nx/enforce-module-boundaries` in `.eslintrc.json`, but `depConstraints` currently allow any tagged project to depend on any other — tags aren't yet used to partition the graph.

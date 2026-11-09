@@ -10,11 +10,6 @@
       "cache": true,
       "inputs": ["default", "^production"]
     },
-    "@angular-devkit/build-angular:application": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
     "test": [
       {
         "filter": {
@@ -30,7 +25,12 @@
           "passWithNoTests": true
         }
       }
-    ]
+    ],
+    "@angular/build:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
@@ -118,6 +118,7 @@
         "targetName": "test"
       },
       "include": [
+        "apps/jeannine-site/**/*",
         "apps/micah-site/**/*",
         "apps/plaid-sample/**/*",
         "apps/plaid-sample-api/**/*"
