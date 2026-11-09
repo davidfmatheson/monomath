@@ -60,6 +60,9 @@
       },
       "readyWhen": {
         "signal": true
+      },
+      "options": {
+        "port": 4300
       }
     },
     "serve-static": {
@@ -69,7 +72,10 @@
       },
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "plaid-sample:build"
+        "buildTarget": "plaid-sample:build",
+        "port": 4300,
+        "staticFilePath": "dist/apps/plaid-sample/browser",
+        "spa": true
       }
     }
   }
