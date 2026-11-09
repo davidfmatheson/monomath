@@ -40,6 +40,14 @@ export default [
     },
   },
   {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
+    rules: {
+      // Enabled by @nx/eslint-plugin's presets but deprecated in typescript-eslint v8; its
+      // replacement, '@typescript-eslint/no-empty-object-type', is already enabled.
+      '@typescript-eslint/no-empty-interface': 'off',
+    },
+  },
+  {
     files: ['**/*.spec.ts', '**/*.spec.tsx', '**/*.spec.js', '**/*.spec.jsx'],
     languageOptions: {
       globals: {

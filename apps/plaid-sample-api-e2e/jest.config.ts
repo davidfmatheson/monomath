@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'plaid-sample-api-e2e',
   preset: '../../jest.preset.js',
