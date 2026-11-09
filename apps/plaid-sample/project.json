@@ -69,7 +69,10 @@
       },
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "plaid-sample:build"
+        "buildTarget": "plaid-sample:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/plaid-sample/browser",
+        "spa": true
       }
     }
   }

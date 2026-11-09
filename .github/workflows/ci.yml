@@ -51,6 +51,13 @@ jobs:
           echo "NX_BASE=$BASE" >> "$GITHUB_ENV"
           echo "NX_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - run: npx nx affected -t lint test build --parallel=3
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      # Plain `e2e` rather than the atomized `e2e-ci`, which requires Nx Cloud.
+      # Serial: every e2e web server binds localhost:4200 with reuseExistingServer,
+      # so parallel e2e tasks could hit the wrong app.
+      # plaid-sample-api-e2e is excluded: nothing starts the API for it yet.
+      - run: npx nx affected -t e2e --parallel=1 --exclude=plaid-sample-api-e2e
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         id: tag_version
