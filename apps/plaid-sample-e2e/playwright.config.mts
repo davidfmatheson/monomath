@@ -4,7 +4,7 @@ import { getReadyUrl, workspaceRoot } from '@nx/devkit';
 
 // For CI, you may want to set BASE_URL to the deployed application.
 // getReadyUrl moves the address to the port the dev server task reported.
-const baseURL = process.env['BASE_URL'] || getReadyUrl('http://localhost:4200');
+const baseURL = process.env['BASE_URL'] || getReadyUrl('http://localhost:4300');
 
 /**
  * Read environment variables from file.
@@ -34,7 +34,7 @@ export default defineConfig({
     command: process.env['CI']
       ? 'npx nx run plaid-sample:serve-static'
       : 'npx nx run plaid-sample:serve',
-    url: getReadyUrl('http://localhost:4200'),
+    url: getReadyUrl('http://localhost:4300'),
     reuseExistingServer: true,
     cwd: workspaceRoot,
   },
