@@ -1,11 +1,11 @@
-import cypress from 'eslint-plugin-cypress';
+import playwright from 'eslint-plugin-playwright';
 import baseConfig from '../../eslint.config.mjs';
 
 export default [
+  playwright.configs['flat/recommended'],
   ...baseConfig,
-  cypress.configs.recommended,
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    files: ['**/*.ts', '**/*.js'],
     // Override or add rules here
     rules: {},
   },

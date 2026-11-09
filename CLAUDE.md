@@ -14,7 +14,7 @@ Treat `plaid-sample*` as a starting point, not a reference implementation — do
 
 ## Commands
 
-Always run tasks through `nx` rather than the underlying tool directly (e.g. `ng`, `jest`, `cypress` binaries).
+Always run tasks through `nx` rather than the underlying tool directly (e.g. `ng`, `jest`, `playwright` binaries).
 
 ```bash
 # Serve an app locally
@@ -33,7 +33,7 @@ nx test <project>
 nx test <project> -t "<test name pattern>"   # single test by name
 nx test <project> --testFile=<path>          # single spec file
 
-# E2E tests (Cypress for Angular apps, Jest for plaid-sample-api-e2e)
+# E2E tests (Playwright for Angular apps, Jest for plaid-sample-api-e2e)
 nx e2e <project>-e2e           # e.g. nx e2e micah-site-e2e
 
 # Run only what's affected by local changes vs main (mirrors CI)

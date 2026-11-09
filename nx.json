@@ -6,20 +6,10 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    "e2e": [
-      {
-        "cache": true,
-        "inputs": ["default", "^production"]
-      },
-      {
-        "filter": {
-          "plugin": "@nx/cypress/plugin"
-        },
-        "options": {
-          "config-file": "./cypress.config.ts"
-        }
-      }
-    ],
+    "e2e": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
     "@angular-devkit/build-angular:application": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -57,7 +47,7 @@
   },
   "generators": {
     "@nx/angular:application": {
-      "e2eTestRunner": "cypress",
+      "e2eTestRunner": "playwright",
       "linter": "eslint",
       "style": "scss",
       "unitTestRunner": "jest"
@@ -156,12 +146,10 @@
       }
     },
     {
-      "plugin": "@nx/cypress/plugin",
+      "plugin": "@nx/playwright/plugin",
       "options": {
         "targetName": "e2e",
-        "ciTargetName": "e2e-ci",
-        "componentTestingTargetName": "component-test",
-        "openTargetName": "open-cypress"
+        "ciTargetName": "e2e-ci"
       }
     }
   ],
