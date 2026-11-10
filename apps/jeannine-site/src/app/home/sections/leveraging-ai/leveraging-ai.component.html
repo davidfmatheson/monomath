@@ -1,0 +1,44 @@
+<section id="leveraging-ai" aria-labelledby="ai-heading" class="section bg-white">
+  <div class="container-page">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="eyebrow">Leveraging AI</p>
+      <h2 id="ai-heading" class="mt-3 text-3xl font-bold sm:text-4xl">Modern tools, human judgment</h2>
+      <p class="mt-4 text-lg leading-relaxed">
+        Thoughtfully used, artificial intelligence lets a public interest practice do more with less. It handles
+        routine work faster so more time goes to listening, strategy, and advocacy, at a lower cost to clients.
+      </p>
+    </div>
+
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2">
+      @for (example of examples; track example.title) {
+        <li class="flex gap-5 rounded-2xl border border-cream-dark bg-cream p-6">
+          <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand text-gold" aria-hidden="true">
+            <fa-icon [icon]="example.icon" size="lg" />
+          </span>
+          <div>
+            <h3 class="text-xl font-semibold">{{ example.title }}</h3>
+            <p class="mt-2 leading-relaxed text-slate-600">{{ example.text }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <div class="mt-12 flex flex-col items-start gap-8 rounded-2xl border-l-4 border-gold bg-gold-light p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <h3 class="text-xl font-semibold">Our commitment to responsible AI</h3>
+        <ul class="mt-4 space-y-3">
+          @for (safeguard of safeguards; track safeguard.text) {
+            <li class="flex items-start gap-3">
+              <fa-icon [icon]="safeguard.icon" class="mt-1 text-brand" />
+              <span>{{ safeguard.text }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+      <a routerLink="/" fragment="contact" class="btn btn-primary shrink-0">
+        <fa-icon [icon]="icons.faCalendarCheck" />
+        Schedule a Consultation
+      </a>
+    </div>
+  </div>
+</section>

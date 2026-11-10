@@ -1,0 +1,82 @@
+@if (initiative(); as initiative) {
+  <article aria-labelledby="initiative-heading">
+    <header class="section surface-dark bg-brand-dark pb-12 md:pb-16">
+      <div class="container-page">
+        <a routerLink="/" fragment="activism" class="inline-flex items-center gap-2 text-sm font-medium text-slate-200 hover:text-white hover:underline">
+          <fa-icon [icon]="icons.faArrowLeft" />
+          Back to all initiatives
+        </a>
+        <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
+          <span class="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gold text-brand-dark" aria-hidden="true">
+            <fa-icon [icon]="initiative.icon" size="2x" />
+          </span>
+          <div>
+            <p class="text-sm font-semibold tracking-widest text-gold uppercase">Activism</p>
+            <h1 id="initiative-heading" class="mt-1 text-3xl font-bold text-white sm:text-5xl">{{ initiative.title }}</h1>
+          </div>
+        </div>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200">{{ initiative.summary }}</p>
+      </div>
+    </header>
+
+    <div class="section">
+      <div class="container-page grid gap-12 lg:grid-cols-3">
+        <div class="space-y-5 text-lg leading-relaxed lg:col-span-2">
+          @for (paragraph of initiative.body; track $index) {
+            <p>{{ paragraph }}</p>
+          }
+
+          @if (initiative.externalLink; as link) {
+            <p>
+              <a [href]="link.href" target="_blank" rel="noopener noreferrer" class="link inline-flex items-center gap-2">
+                {{ link.label }}
+                <fa-icon [icon]="icons.faArrowUpRightFromSquare" size="sm" />
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </p>
+          }
+        </div>
+
+        <aside aria-labelledby="get-involved-heading" class="h-fit rounded-2xl border border-cream-dark bg-white p-6 shadow-sm">
+          <h2 id="get-involved-heading" class="text-xl font-semibold">How you can help</h2>
+          <ul class="mt-4 space-y-3">
+            @for (item of initiative.getInvolved; track item) {
+              <li class="flex items-start gap-3">
+                <fa-icon [icon]="icons.faCircleCheck" class="mt-1 text-gold-text" />
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ul>
+          <a routerLink="/" fragment="contact" class="btn btn-primary mt-6 w-full">Get in touch</a>
+        </aside>
+      </div>
+    </div>
+
+    <nav aria-labelledby="other-initiatives-heading" class="section bg-white pt-12 md:pt-16">
+      <div class="container-page">
+        <h2 id="other-initiatives-heading" class="text-2xl font-semibold">Other initiatives</h2>
+        <ul class="mt-6 grid gap-4 sm:grid-cols-3">
+          @for (other of others(); track other.slug) {
+            <li>
+              <a
+                [routerLink]="['/activism', other.slug]"
+                class="flex h-full items-center gap-4 rounded-xl border border-cream-dark bg-cream p-4 font-semibold text-brand-dark no-underline hover:border-gold"
+              >
+                <fa-icon [icon]="other.icon" class="text-brand" />
+                {{ other.title }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </nav>
+  </article>
+} @else {
+  <section class="section" aria-labelledby="initiative-missing-heading">
+    <div class="container-page max-w-2xl text-center">
+      <h1 id="initiative-missing-heading" class="text-3xl font-bold">We couldn’t find that initiative</h1>
+      <p class="mt-4 text-lg">It may have moved. You can browse all of Jeannine’s activism work instead.</p>
+      <a routerLink="/" fragment="activism" class="btn btn-primary mt-8">See all initiatives</a>
+    </div>
+  </section>
+}

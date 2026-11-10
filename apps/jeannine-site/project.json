@@ -21,7 +21,7 @@
             "input": "apps/jeannine-site/public"
           }
         ],
-        "styles": ["apps/jeannine-site/src/styles.scss"]
+        "styles": ["apps/jeannine-site/src/styles.css"]
       },
       "configurations": {
         "production": {

@@ -1,2 +1,15 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<a
+  href="#main"
+  (click)="skipToMain($event)"
+  class="sr-only z-50 rounded-md bg-brand-dark px-4 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+>
+  Skip to main content
+</a>
+
+<app-header />
+
+<main id="main" #main tabindex="-1">
+  <router-outlet />
+</main>
+
+<app-footer />

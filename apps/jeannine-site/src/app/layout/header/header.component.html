@@ -1,0 +1,74 @@
+<header class="sticky top-0 z-40 border-b border-cream-dark bg-cream/95 backdrop-blur">
+  <div class="container-page flex items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a routerLink="/" fragment="home" class="flex items-center gap-3 no-underline">
+      <span class="flex size-10 shrink-0 items-center justify-center rounded-md bg-brand text-gold" aria-hidden="true">
+        <fa-icon [icon]="icons.faScaleBalanced" />
+      </span>
+      <span class="flex flex-col leading-tight">
+        <span class="font-serif text-lg font-semibold text-brand-dark sm:text-xl">{{ site.attorneyName }}</span>
+        <span class="text-xs font-medium tracking-wide text-slate-600 uppercase">{{ site.title }}</span>
+      </span>
+    </a>
+
+    <nav aria-label="Main" class="hidden xl:block">
+      <ul class="flex items-center gap-1">
+        @for (item of navItems; track item.label) {
+          <li>
+            <a
+              routerLink="/"
+              [fragment]="item.fragment"
+              class="rounded-md px-3 py-2 text-sm font-medium text-slate-700 no-underline hover:bg-brand-light hover:text-brand-dark"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a routerLink="/" fragment="contact" class="btn btn-gold hidden px-4 py-2.5 text-sm sm:inline-flex">
+        Book a Free Consultation
+      </a>
+
+      <button
+        #menuButton
+        type="button"
+        class="inline-flex size-11 items-center justify-center rounded-md text-brand-dark hover:bg-brand-light xl:hidden"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-nav"
+        (click)="toggleMenu()"
+      >
+        <span class="sr-only">{{ menuOpen() ? 'Close menu' : 'Open menu' }}</span>
+        <fa-icon [icon]="menuOpen() ? icons.faXmark : icons.faBars" size="lg" />
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-nav"
+    aria-label="Main"
+    class="border-t border-cream-dark bg-cream xl:hidden"
+    [hidden]="!menuOpen()"
+  >
+    <ul class="container-page flex flex-col px-4 py-3 sm:px-6">
+      @for (item of navItems; track item.label) {
+        <li>
+          <a
+            routerLink="/"
+            [fragment]="item.fragment"
+            class="block rounded-md px-3 py-3 text-base font-medium text-slate-800 no-underline hover:bg-brand-light"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      }
+      <li class="mt-2 sm:hidden">
+        <a routerLink="/" fragment="contact" class="btn btn-gold w-full" (click)="closeMenu()">
+          Book a Free Consultation
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

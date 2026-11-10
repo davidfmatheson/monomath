@@ -6,7 +6,12 @@ export default [
   ...baseConfig,
   {
     files: ['**/*.ts', '**/*.js'],
-    // Override or add rules here
-    rules: {},
+    rules: {
+      // expectNoA11yViolations() wraps an expect() on axe-core results.
+      'playwright/expect-expect': [
+        'warn',
+        { assertFunctionNames: ['expectNoA11yViolations'] },
+      ],
+    },
   },
 ];
