@@ -55,7 +55,7 @@ jobs:
         run: npx playwright install --with-deps
       # Plain `e2e` rather than the atomized `e2e-ci`, which requires Nx Cloud.
       # Each app's web server needs its own port (micah-site 4200, plaid-sample
-      # 4300): Nx starts continuous serve tasks regardless of --parallel, and
+      # 4300, jeannine-site 4400): Nx starts continuous serve tasks regardless of --parallel, and
       # reuseExistingServer would otherwise let one app's tests hit the other.
       # plaid-sample-api-e2e is excluded: nothing starts the API for it yet.
       - run: npx nx affected -t e2e --parallel=1 --exclude=plaid-sample-api-e2e

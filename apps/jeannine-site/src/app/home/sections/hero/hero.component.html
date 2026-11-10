@@ -1,0 +1,44 @@
+<section id="home" aria-labelledby="hero-heading" class="section overflow-hidden bg-gradient-to-b from-cream to-cream-dark">
+  <div class="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <div>
+      <p class="eyebrow">Public interest law in Boston, Massachusetts</p>
+      <h1 id="hero-heading" class="mt-4 text-4xl leading-tight font-bold sm:text-5xl lg:text-[3.4rem]">
+        Justice shouldn’t depend on what you can afford.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-700">
+        When a legal problem threatens your home, your health, or your family, you deserve an advocate who listens
+        first. I stand with individuals, families, and the organizations that serve them, so you can keep helping the
+        people who count on you.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a routerLink="/" fragment="contact" class="btn btn-primary">
+          Helping You Help Others
+          <fa-icon [icon]="icons.faArrowRight" />
+        </a>
+        <a routerLink="/" fragment="about" class="btn btn-outline">Meet Jeannine</a>
+      </div>
+
+      <ul class="mt-10 space-y-3" aria-label="Why clients choose Jeannine">
+        @for (highlight of highlights; track highlight) {
+          <li class="flex items-center gap-3 text-slate-700">
+            <fa-icon [icon]="icons.faCircleCheck" class="text-gold-text" />
+            {{ highlight }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -top-6 -right-6 hidden size-40 rounded-full bg-gold/25 lg:block" aria-hidden="true"></div>
+      <div class="absolute -bottom-8 -left-8 hidden size-56 rounded-full bg-brand/10 lg:block" aria-hidden="true"></div>
+      <!-- TODO(content): replace with a professional headshot, e.g.
+           <img src="images/jeannine-headshot.jpg" alt="..." class="aspect-[4/5] w-full rounded-2xl object-cover shadow-xl"> -->
+      <app-image-placeholder
+        class="relative aspect-[4/5] w-full shadow-xl"
+        label="Portrait of attorney Jeannine Casselman smiling warmly in her Boston office"
+        [icon]="icons.faUserTie"
+      />
+    </div>
+  </div>
+</section>

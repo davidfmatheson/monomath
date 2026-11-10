@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Workspace
 
-This is an Nx monorepo (Nx 23) with no `libs/` content yet — all code lives under `apps/`. There are three logical projects, each with a paired `-e2e` project:
+This is an Nx monorepo (Nx 23) with no `libs/` content yet — all code lives under `apps/`. There are four logical projects, each with a paired `-e2e` project:
 
 - **`micah-site`** — the real, actively developed application. An Angular 21 app (standalone components, Angular Material + CoreUI) that is Micah's personal site, with `home`, `videos`, and `pictures` routes (`apps/micah-site/src/app/app.routes.ts`). This is the only app deployed by CI (synced to the `micahmatheson.com` S3 bucket on push to `main`).
+- **`jeannine-site`** — an Angular 22 site for Jeannine Casselman, a Boston public interest attorney. Standalone components, Tailwind CSS v4 (theme tokens in `src/styles.css`, PostCSS via `.postcssrc.json`), and FontAwesome icons. Editable copy and contact details live in `src/app/content/`; the intake form's `IntakeService` is a stub with no backend. Serves on port 4400. Its e2e suite runs axe-core accessibility scans. Not deployed by CI yet.
 - **`plaid-sample`** — an Angular app scaffold, currently unmodified Nx boilerplate (`nx-welcome.component.ts`). Despite the name, no Plaid SDK is wired in yet.
 - **`plaid-sample-api`** — a NestJS API scaffold, currently unmodified Nx/Nest boilerplate (`AppController`/`AppService` returning `{ message: 'Hello API' }`).
 
@@ -41,6 +42,10 @@ nx affected -t lint test build --parallel=3
 ```
 
 CI (`.github/workflows/ci.yml`) runs exactly `nx affected -t lint test build --parallel=3` against `origin/main`, then on pushes to `main` tags a version and deploys `dist/apps/micah-site/browser` to S3. There is no build-artifact deploy step for `plaid-sample`/`plaid-sample-api`.
+
+## Commits
+
+Commit messages must follow Conventional Commits (`@commitlint/config-conventional`, configured in `commitlint.config.mjs`). A lefthook `commit-msg` hook (`lefthook.yml`) runs commitlint and rejects non-conforming messages. `npm run commit` opens the commitizen prompt, which reads the same rules. Hooks are installed by lefthook's npm postinstall (or `npx lefthook install`).
 
 ## Architecture notes
 

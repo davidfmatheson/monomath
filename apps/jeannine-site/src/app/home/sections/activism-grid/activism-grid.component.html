@@ -1,0 +1,44 @@
+<section id="activism" aria-labelledby="activism-heading" class="section">
+  <div class="container-page">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Activism</p>
+      <h2 id="activism-heading" class="mt-3 text-3xl font-bold sm:text-4xl">Advocacy beyond the courtroom</h2>
+      <p class="mt-4 text-lg leading-relaxed">
+        Lasting change happens when communities organize. These are the causes Jeannine champions alongside neighbors,
+        partners, and fellow advocates.
+      </p>
+    </div>
+
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      @for (initiative of initiatives; track initiative.slug) {
+        <li>
+          <!-- The title link is stretched over the whole card, so the card is
+               one large click target but only one tab stop. -->
+          <article
+            class="group relative flex h-full flex-col rounded-2xl border border-cream-dark bg-white p-6 shadow-sm focus-within:shadow-lg motion-safe:transition motion-safe:duration-200 motion-safe:hover:-translate-y-1 hover:border-gold hover:shadow-lg"
+          >
+            <span
+              class="flex size-12 items-center justify-center rounded-xl bg-brand-light text-brand group-hover:bg-brand group-hover:text-gold motion-safe:transition-colors"
+              aria-hidden="true"
+            >
+              <fa-icon [icon]="initiative.icon" size="lg" />
+            </span>
+            <h3 class="mt-5 text-xl font-semibold">
+              <a
+                [routerLink]="['/activism', initiative.slug]"
+                class="no-underline after:absolute after:inset-0 after:rounded-2xl"
+              >
+                {{ initiative.title }}
+              </a>
+            </h3>
+            <p class="mt-3 flex-1 leading-relaxed text-slate-600">{{ initiative.summary }}</p>
+            <p class="mt-5 inline-flex items-center gap-2 font-semibold text-brand" aria-hidden="true">
+              Learn more
+              <fa-icon [icon]="faArrowRight" class="motion-safe:transition-transform group-hover:translate-x-1" />
+            </p>
+          </article>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

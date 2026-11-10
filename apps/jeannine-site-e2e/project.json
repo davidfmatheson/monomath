@@ -1,0 +1,9 @@
+{
+  "name": "jeannine-site-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/jeannine-site-e2e/src",
+  "implicitDependencies": ["jeannine-site"],
+  "// targets": "to see all targets run: nx show project jeannine-site-e2e --web",
+  "targets": {}
+}
